@@ -1,0 +1,90 @@
+# Git管理から除外するファイル
+# ===============================
+
+# Terraform関連
+*.tfstate
+*.tfstate.*
+*.tfvars.local
+.terraform/
+.terraform.lock.hcl
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# 機密情報ファイル
+.env
+.env.local
+.env.*.local
+secrets.txt
+*.pem
+*.key
+
+# AWS認証情報
+.aws/
+aws-credentials
+credentials
+
+# IDE・エディタ設定
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS固有ファイル
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ログファイル
+*.log
+logs/
+
+# 一時ファイル
+*.tmp
+*.temp
+tmp/
+temp/
+
+# バックアップファイル
+*.bak
+*.backup
+
+# 圧縮ファイル
+*.zip
+*.tar.gz
+*.rar
+
+# 実行ファイル
+*.exe
+
+# Node.js関連（将来使用する可能性）
+node_modules/
+npm-debug.log*
+
+# Python関連（将来使用する可能性）
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+
+# =============================================================================
+# ⚠️  重要：機密情報保護
+# =============================================================================
+# 以下のファイルは絶対にGitにコミットしないでください：
+# - 実際の.envファイル（.env.exampleはOK）
+# - AWSアクセスキーを含むファイル
+# - 実際のAWSアカウントIDを含むterraform.tfvars（テンプレートはOK）
+# - プライベートキー（*.pem, *.key）
+# - パスワードやAPIキーを含むファイル
+terraform.tfvars
+setup-env.sh
+user_data.sh
+setup-env.ps1
