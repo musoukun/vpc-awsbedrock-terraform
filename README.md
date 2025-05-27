@@ -171,41 +171,6 @@ aws sts get-caller-identity
 aws bedrock list-foundation-models --region ap-northeast-1
 ```
 
-## 🔒 **セキュリティベストプラクティス**
-
-### **1. 環境変数管理**
-
-```bash
-# ✅ 良い例：環境変数使用
-export AWS_ACCOUNT_ID=123456789012
-terraform plan
-
-# ❌ 悪い例：直接記載
-# terraform.tfvars に直接AWSアカウントIDを記載
-```
-
-### **2. GitHubアップロード前チェック**
-
-```bash
-# 機密情報が含まれていないかチェック
-grep -r "054333256927" .  # 特定のアカウントIDを検索
-grep -r "AKIA" .          # アクセスキーを検索
-grep -r "aws_secret" .    # シークレットキーを検索
-
-# .gitignoreが正しく設定されているか確認
-git status
-```
-
-### **3. 推奨される.envファイル管理**
-
-```bash
-# ローカル開発用
-.env                    # 実際の値（Git除外）
-.env.example           # テンプレート（Git管理）
-.env.production        # 本番用（Git除外）
-.env.staging          # ステージング用（Git除外）
-```
-
 ## 💰 **コスト情報**
 
 ### **月額概算（東京リージョン）**
